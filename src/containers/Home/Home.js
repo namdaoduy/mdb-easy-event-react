@@ -4,6 +4,7 @@ import {
   Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
   Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask
 } from 'mdbreact'
+import { Event } from './Event'
 
 export default class Home extends Component {
   constructor(props) {
@@ -64,7 +65,7 @@ export default class Home extends Component {
           </Collapse>
         </Navbar>
 
-        <div id="body" className="home-body">
+        <div id="home-carousel" className="home-carousel">
           <Carousel
             visible={false}
             activeItem={1}
@@ -115,8 +116,22 @@ export default class Home extends Component {
               </CarouselItem>
             </CarouselInner>
           </Carousel>
+        </div>
 
+        <div id="home-list" className="home-list">
+          <div className="row">
+            <Event />
+            <Event />
+            <Event />
 
+            <Event />
+            <Event />
+            <Event />
+
+            <Event />
+            <Event />
+            <Event />
+          </div>
         </div>
       </div>
     )
