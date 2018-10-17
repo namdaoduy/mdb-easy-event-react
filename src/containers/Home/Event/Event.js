@@ -8,7 +8,7 @@ export default class Event extends Component {
       <div className="home-event col-lg-4 col-md-6">
         <div className="event-inner">
           <div className="event-img-ctn">
-            <img className="event-img" src="https://tkbvn-tokyo.s3.amazonaws.com/Upload/eventcover/2018/08/09/ACB49D.jpg" alt=""></img>
+            <img className="event-img" src={require("./../../../assets/images/google.jpg")} alt=""></img>
           </div>
           <div className="event-des-ctn">
             <h3 className="event-des-title">

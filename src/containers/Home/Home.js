@@ -76,7 +76,7 @@ export default class Home extends Component {
             <CarouselInner>
               <CarouselItem itemId="1">
                 <View>
-                  <img className="d-block w-100" src="https://tkbvn-tokyo.s3.amazonaws.com/Upload/eventcover/2018/08/09/ACB49D.jpg" alt="First slide" />
+                  <img className="d-block w-100" src={require("./../../assets/images/google.jpg")} alt="First slide" />
                   <Mask overlay="black-light"></Mask>
                 </View>
                 <CarouselCaption>
@@ -86,7 +86,7 @@ export default class Home extends Component {
               </CarouselItem>
               <CarouselItem itemId="2">
                 <View>
-                  <img className="d-block w-100" src="https://tkbvn-tokyo.s3.amazonaws.com/Upload/eventcover/2018/08/09/ACB49D.jpg" alt="Second slide" />
+                  <img className="d-block w-100" src={require("./../../assets/images/carousel.jpg")} alt="Second slide" />
                   <Mask overlay="black-light"></Mask>
                 </View>
                 <CarouselCaption>
@@ -96,7 +96,7 @@ export default class Home extends Component {
               </CarouselItem>
               <CarouselItem itemId="3">
                 <View>
-                  <img className="d-block w-100" src="https://tkbvn-tokyo.s3.amazonaws.com/Upload/eventcover/2018/08/09/ACB49D.jpg" alt="Third slide" />
+                  <img className="d-block w-100" src={require("./../../assets/images/google.jpg")} alt="Third slide" />
                   <Mask overlay="black-light"></Mask>
                 </View>
                 <CarouselCaption>
@@ -106,7 +106,7 @@ export default class Home extends Component {
               </CarouselItem>
               <CarouselItem itemId="4">
                 <View>
-                  <img className="d-block w-100" src="https://tkbvn-tokyo.s3.amazonaws.com/Upload/eventcover/2018/08/09/ACB49D.jpg" alt="Mattonit's item" />
+                  <img className="d-block w-100" src={require("./../../assets/images/carousel.jpg")} alt="Mattonit's item" />
                   <Mask overlay="black-light"></Mask>
                 </View>
                 <CarouselCaption>
