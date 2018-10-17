@@ -90,8 +90,8 @@ export default class Home extends Component {
                   <Mask overlay="black-light"></Mask>
                 </View>
                 <CarouselCaption>
-                  <h3 className="h3-responsive">Strong mask</h3>
-                  <p>Second text</p>
+                  <h3 className="h3-responsive">GOOGLE DIGITAL 4.0</h3>
+                  <p>Hà Nội</p>
                 </CarouselCaption>
               </CarouselItem>
               <CarouselItem itemId="3">
@@ -100,8 +100,8 @@ export default class Home extends Component {
                   <Mask overlay="black-light"></Mask>
                 </View>
                 <CarouselCaption>
-                  <h3 className="h3-responsive">Slight mask</h3>
-                  <p>Third text</p>
+                  <h3 className="h3-responsive">GOOGLE DIGITAL 4.0</h3>
+                  <p>Hà Nội</p>
                 </CarouselCaption>
               </CarouselItem>
               <CarouselItem itemId="4">
@@ -110,8 +110,8 @@ export default class Home extends Component {
                   <Mask overlay="black-light"></Mask>
                 </View>
                 <CarouselCaption>
-                  <h3 className="h3-responsive">Sopot Beach</h3>
-                  <p>Taken june 21th by @mattonit</p>
+                  <h3 className="h3-responsive">GOOGLE DIGITAL 4.0</h3>
+                  <p>Hà Nội</p>
                 </CarouselCaption>
               </CarouselItem>
             </CarouselInner>

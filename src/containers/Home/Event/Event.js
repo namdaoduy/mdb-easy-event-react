@@ -18,6 +18,17 @@ export default class Event extends Component {
               <div className="event-des-place">
                 HÀ NỘI
               </div>
+              <div className="event-des-calendar">
+                <div className="calendar-month">
+                  THÁNG 10
+                </div>
+                <div className="calendar-date">
+                  10
+                </div>
+                <div className="calendar-wd">
+                  Thứ 6
+                </div>
+              </div>
             </div>
           </div>
         </div>

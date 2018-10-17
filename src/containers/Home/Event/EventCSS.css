@@ -36,7 +36,9 @@ h3.event-des-title {
 }
 
 .event-des-footer {
+  display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .event-des-place {
@@ -44,4 +46,35 @@ h3.event-des-title {
   border: 1px #7272724b solid;
   padding: 3px 5px;
   width: fit-content;
+  height: fit-content;
+  align-self: flex-end;
+}
+
+.event-des-calendar {
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  border: 1px #7272724b solid;
+  box-shadow: 3px 3px 5px 0px #00000024;
+}
+
+.calendar-month {
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  padding: 3px;
+  height: 30%;
+  background-color: #EB1212;
+}
+
+.calendar-date {
+  font-size: 25px;
+  text-align: center;
+  height: 50%;
+}
+
+.calendar-wd {
+  font-size: 10px;
+  text-align: center;
+  height: 20%;
 }
