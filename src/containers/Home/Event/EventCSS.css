@@ -54,8 +54,7 @@ h3.event-des-title {
   width: 70px;
   height: 70px;
   background-color: white;
-  border: 1px #7272724b solid;
-  box-shadow: 3px 3px 5px 0px #00000024;
+  box-shadow: 1px 1px 5px 2px #00000024;
 }
 
 .calendar-month {
