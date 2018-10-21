@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "./HomeCSS.css"
+import "./home.css"
 import { 
   Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
   Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask
