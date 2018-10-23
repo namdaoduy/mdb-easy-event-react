@@ -26,14 +26,12 @@ export default class Home extends Component {
       <div className="home">
         <Navbar color="warning-color" light expand="md" scrolling>
           <NavbarBrand href="/">
-            <strong>EasyEvent</strong>
+            <img className="brand-img" src={require("./../../assets/images/logo.png")} alt=""></img>
           </NavbarBrand>
+          <NavLink to="/" className="nav-title">Easy Event</NavLink>
           {!this.state.isWideEnough && <NavbarToggler onClick={this.onClick} />}
           <Collapse isOpen={this.state.collapse} navbar>
             <NavbarNav left>
-              <NavItem active width={50}>
-                <NavLink to="#">Trang chủ</NavLink>
-              </NavItem>
               <NavItem>
                 <NavLink to="#">Tham gia</NavLink>
               </NavItem>

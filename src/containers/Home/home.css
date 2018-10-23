@@ -5,3 +5,25 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+@media (max-width: 1200px) {
+  .home-carousel {
+    margin-top: 0;
+  }
+
+  .nav-title {
+    display: none;
+  }
+}
+
+.brand-img {
+  height: 40px;
+}
+
+.nav-title {
+  font-size: 26px;
+  padding: 2px 0px;
+  font-weight: bold;
+  width: 170px;
+  text-align: center;
+}
