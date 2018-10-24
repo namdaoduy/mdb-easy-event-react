@@ -1,0 +1,26 @@
+.nav-custom {
+  width: 120px;
+  text-align: center;
+}
+
+.drop-menu-custom {
+  width: 300px;
+}
+
+.brand-img {
+  height: 40px;
+}
+
+.nav-title {
+  font-size: 26px;
+  padding: 2px 0px;
+  font-weight: bold;
+  width: 170px;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .nav-title {
+    display: none;
+  }
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react"
-import "./EventCSS.css"
+import "./homeEvent.css"
 
-export default class Event extends Component {
+export default class HomeEvent extends Component {
   
   render() {
     return (
