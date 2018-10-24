@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import "./home.css"
 import { HomeEvent } from './HomeEvent'
-import { NavBar } from './../NavBar'
+import { NavBar } from './../../components/NavBar'
 import { Carousel } from './Carousel'
 
 export default class Home extends Component {

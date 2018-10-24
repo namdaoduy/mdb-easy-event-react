@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./navbar.css"
-import { 
+import {
   Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'mdbreact'
 
@@ -42,7 +42,7 @@ export default class Home extends Component {
                 <DropdownMenu>
                   <DropdownItem href="#">Mới nhất</DropdownItem>
                   <DropdownItem href="#">Phổ biến nhất</DropdownItem>
-                  <DropdownItem divider/>
+                  <DropdownItem divider />
                   <DropdownItem href="#">Công nghệ</DropdownItem>
                   <DropdownItem href="#">Hội thảo</DropdownItem>
                   <DropdownItem href="#">Giải trí</DropdownItem>
@@ -52,7 +52,7 @@ export default class Home extends Component {
           </NavbarNav>
           <NavbarNav right>
             <NavItem>
-              <input className="form-control" type="text" placeholder="Search" aria-label="Search"/>
+              <input className="form-control" type="text" placeholder="Search" aria-label="Search" />
             </NavItem>
             <NavItem>
               <NavLink to="#">Đăng nhập</NavLink>
