@@ -42,3 +42,25 @@
 .event-ctn h5 {
   font-weight: bold;
 }
+
+.event-body {
+  padding: 30px 5px;
+}
+
+.event-info-card {
+  height: auto;
+  overflow: hidden;
+}
+
+.show-more-hide {
+  height: 500px;
+}
+
+.show-more-btn {
+  position: absolute;
+  width: 120px;
+  margin: 10px auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

@@ -38,3 +38,7 @@ div#root, div#root > div {
 .row {
   margin: 0;
 }
+
+.pre {
+  white-space: pre-wrap;
+}
