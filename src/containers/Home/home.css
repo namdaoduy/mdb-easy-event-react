@@ -12,6 +12,12 @@
   }
 }
 
+@media (max-width: 767px) {
+  .home-carousel {
+    display: none;
+  }
+}
+
 .capt {
   background-color: #00000059;
   width: fit-content;

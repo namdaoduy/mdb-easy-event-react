@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=vietnamese');
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=vietnamese'); */
+/* @import url('https://fonts.googleapis.com/css?family=Oswald:400,700&subset=vietnamese'); */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=vietnamese');
 
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  /* font-family: 'Oswald', sans-serif; */
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 *:focus {

@@ -31,9 +31,14 @@
   margin: auto;
   margin-top: 20px;
   font-size: 15px;
+  font-weight: bold;
 }
 
 .event-join-btn {
   color: black !important;
+  font-size: 18px;
+}
+
+.event-ctn h5 {
   font-weight: bold;
 }
