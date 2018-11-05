@@ -98,7 +98,9 @@ export default class Event extends Component {
             </div>
 
             <div className="col-lg-4 col-md-6">
-              <Button color="yellow" className="event-join-btn">Tham gia ngay</Button>
+              <Button color="yellow" className="event-join-btn"
+                onClick={() => this.props.history.push("/registerform/1")}>
+                Tham gia ngay</Button>
               <Button outline color="info" className="event-share-btn">Chia sẻ</Button>
             </div>
 
@@ -106,11 +108,11 @@ export default class Event extends Component {
 
           <div className="row event-body">
             <div className="col-md-8">
-              <Card className={"event-info-card" + (this.state.show ? "" : " show-more-hide")}>
+              <Card className="event-info-card">
                 <CardBody>
                   <CardTitle>Giới thiệu</CardTitle>
                   <hr />
-                  <CardText className="pre">
+                  <CardText className={"pre event-card-text" + (this.state.show ? "" : " show-more-hide")}>
                     {this.state.event_info}
                   </CardText>
                   <Button size="sm" color="yellow" 
