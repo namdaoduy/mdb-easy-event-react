@@ -1,3 +1,28 @@
 .regform-body {
-  
+  background-color: var(--color-orange);
+  height: auto;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.regform-card {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.regform-instruction {
+  display: pre;
+}
+
+.regform-warn {
+  color: red !important;
+}
+
+.regform-label {
+  font-size: 20px;
+}
+
+.regform-input {
+  width: 100%;
+  max-width: 500px;
 }
