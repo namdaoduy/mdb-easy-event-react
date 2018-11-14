@@ -2,7 +2,10 @@
   background-color: var(--color-orange);
   height: auto;
   min-height: 100vh;
-  padding: 20px;
+  padding: 100px 10px;
+  background-image: url('./../../assets/images/logo-bg.png');
+  background-size: 150px;
+  background-position: center;
 }
 
 .regform-card {
