@@ -21,11 +21,39 @@
   color: red !important;
 }
 
+.regform-item-container {
+  padding: 20px 5px;
+}
+
 .regform-label {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .regform-input {
   width: 100%;
   max-width: 500px;
+  height: 30px;
+  padding: 10px;
+  border: 1px #ccc solid;
+  border-radius: 10px;
+}
+
+.regform-textarea {
+  width: 100%;
+  max-width: 500px;
+  height: 100px;
+  padding: 10px;
+  border: 1px #ccc solid;
+  border-radius: 10px;
+}
+
+input[type=checkbox], input[type=radio] {
+  margin-right: 5px;
+}
+
+.regform-submit {
+  color: black !important;
+  font-size: 15px !important;
+  display: block;
+  margin: auto;
 }

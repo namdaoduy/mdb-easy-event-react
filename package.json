@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://namdaoduy.github.io/mdb-easy-event-react/",
   "dependencies": {
+    "informed": "^1.10.9",
     "mdbreact": "^4.8.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
