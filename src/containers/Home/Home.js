@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./home.css"
 import { HomeEvent } from './HomeEvent'
 import { NavBar } from './../../components/NavBar'
+import { Footer } from './../../components/Footer'
 import { Carousel } from './Carousel'
 import API from './../../services/apis'
 
@@ -43,6 +44,8 @@ export default class Home extends Component {
             }
           </div>
         </div>
+
+        <Footer />
       </div>
     )
   }

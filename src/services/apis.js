@@ -8,9 +8,9 @@ class _API {
   }
 
   async postEvent(event_id) {
+
     const res = await fetch(Server + "/event", {
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       method: "POST",

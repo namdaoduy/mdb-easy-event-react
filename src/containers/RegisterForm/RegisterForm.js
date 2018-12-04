@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import "./registerform.css"
 import { Card, CardBody, CardText, CardTitle, Button, Input} from 'mdbreact'
+import { Footer } from './../../components/Footer'
 import { FormComponent } from './FormComponent'
 import { Form } from 'informed';
 import { formdata } from './../../services/fakedata'
@@ -61,6 +62,8 @@ export default class RegisterForm extends Component {
             </CardBody>
           </Card>
         </div>
+
+        <Footer />
       </div>
     )
   }

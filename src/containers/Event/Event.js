@@ -1,7 +1,9 @@
 import React, { Component } from "react"
 import "./event.css"
 import { NavBar } from './../../components/NavBar'
+import { Footer } from './../../components/Footer'
 import { Button, Card, CardBody, CardTitle, CardText } from 'mdbreact'
+import { FacebookShareButton } from 'react-share'
 import API from './../../services/apis'
 
 export default class Event extends Component {
@@ -41,6 +43,7 @@ export default class Event extends Component {
 
   componentDidMount() {
     this.fetchEvent();
+    console.log(window.location.href)
   }
 
   render() {
@@ -72,7 +75,11 @@ export default class Event extends Component {
               <Button color="yellow" className="event-join-btn"
                 onClick={() => this.props.history.push("/registerform/" + this.state.event_id)}>
                 Tham gia ngay</Button>
-              <Button outline color="info" className="event-share-btn">Chia sẻ</Button>
+                <FacebookShareButton
+                  url={window.location.href}
+                  quote={"Easy Event - " + this.state.event_name}>
+                  <Button outline color="info" className="event-share-btn">Chia sẻ</Button>
+                </FacebookShareButton>
             </div>
 
           </div>
@@ -86,7 +93,7 @@ export default class Event extends Component {
                   <CardText className={"pre event-card-text" + (this.state.show ? "" : " show-more-hide")}>
                     {this.state.event_info}
                   </CardText>
-                  <Button size="sm" color="yellow" 
+                  <Button size="sm" outline color="yellow" 
                     className="show-more-btn"
                     onClick={this.showMore}>
                     Show more</Button>
@@ -102,8 +109,11 @@ export default class Event extends Component {
               </Card>
             </div>
 
+
           </div>
         </div>
+
+        <Footer />
       </div>
     )
   }
