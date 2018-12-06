@@ -14,14 +14,24 @@ const formdata = [
   },
   {
     type: "textarea",
-    field: "field-03",
+    field: "reason",
     label: "Lý do bạn đăng ký tham gia sự kiện?",
     required: true
   },
+  // {
+  //   type: "multi-checkbox",
+  //   field: "job-title",
+  //   label: "Bạn thuộc đối tượng nào?",
+  //   list: [
+  //     "Học sinh",
+  //     "Sinh viên",
+  //     "Lập trình viên"
+  //   ]
+  // },
   {
-    type: "multi-checkbox",
-    field: "field-04",
-    label: "Bạn thuộc đối tượng nào?",
+    type: "radio",
+    field: "job_title",
+    label: "Bạn thuộc đối tượng nào",
     list: [
       "Học sinh",
       "Sinh viên",
@@ -30,7 +40,7 @@ const formdata = [
   },
   {
     type: "radio",
-    field: "field-05",
+    field: "gender",
     label: "Giới tính",
     list: [
       "Nam",

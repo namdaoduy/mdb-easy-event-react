@@ -22,7 +22,6 @@ class _API {
   }
 
   async postEvent(event_id) {
-
     const res = await fetch(Server + "/event", {
       headers: {
         'Content-Type': 'application/json'
@@ -31,6 +30,18 @@ class _API {
       body: JSON.stringify({
         event_id: event_id
       })
+    });
+    const result = await res.json();
+    return result;
+  }
+
+  async putGuest(guest) {
+    const res = await fetch(Server + "/event/guest", {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "PUT",
+      body: JSON.stringify(guest)
     });
     const result = await res.json();
     return result;

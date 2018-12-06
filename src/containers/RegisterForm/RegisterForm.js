@@ -5,6 +5,7 @@ import { Footer } from './../../components/Footer'
 import { FormComponent } from './FormComponent'
 import { Form } from 'informed';
 import { formdata } from './../../services/fakedata'
+import API from './../../services/apis'
 
 export default class RegisterForm extends Component {
   constructor(props) {
@@ -20,7 +21,20 @@ export default class RegisterForm extends Component {
   }
   
   onSubmit = (values) => {
-    console.log(values)
+    const guest = {
+      name: values.name,
+      email: values.email,
+      eventID: this.state.event_id,
+      reason: values.reason,
+      job_title: values.job_title, 
+    }
+    API.putGuest(guest)
+    .then(res => {
+      if (res.message === 'OK') {
+        alert('Đăng ký thành công!');
+        this.props.history.push('/event/' + this.state.event_id);
+      }
+    })
   }
 
   render() {
@@ -51,10 +65,10 @@ export default class RegisterForm extends Component {
 
                     <Button type="submit" size="sm" color="yellow" className="regform-submit">Gửi đăng ký</Button>
                     
-                    <h5>Values:</h5>
+                    {/* <h5>Values:</h5>
                     <code>{JSON.stringify(formState.values)}</code>
                     <h5>State</h5>
-                    <code>{JSON.stringify(formState)}</code>
+                    <code>{JSON.stringify(formState)}</code> */}
                   </div>
                 )}
               </Form>
