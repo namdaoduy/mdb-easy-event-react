@@ -6,6 +6,31 @@
   margin-bottom: 30px;
 }
 
+.home-list-title {
+  font-size: 30px;
+  padding-left: 10px;
+}
+
+.home-no-event {
+  min-height: 300px;
+  width: 100%;
+}
+
+.home-no-event img {
+  margin: 50px auto;
+  width: 200px;
+  display: block;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.home-no-event h2 {
+  font-size: 20px;
+  display: block;
+  width: fit-content;
+  margin: auto;
+}
+
 @media (max-width: 1200px) {
   .home-carousel {
     margin-top: 0;
@@ -15,6 +40,12 @@
 @media (max-width: 767px) {
   .home-carousel {
     display: none;
+  }
+
+  .home-list-title {
+    padding: 0;
+    width: fit-content;
+    margin: auto;
   }
 }
 

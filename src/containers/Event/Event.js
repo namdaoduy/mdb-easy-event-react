@@ -13,10 +13,17 @@ export default class Event extends Component {
       event_id: this.props.match.params.event_id,
       event_name: "",
       event_time: "",
+      event_begin_time: "",
+      event_end_time: "",
+      event_begin_date: "",
+      event_end_date: "",
       event_location: "",
       event_location_detail: "",
       event_info: "",
       event_img: null,
+      event_type: "",
+      event_organizer: "",
+      event_contact: {},
       show: false,
     }
   }
@@ -31,14 +38,27 @@ export default class Event extends Component {
     API.postEvent(this.state.event_id)
     .then(res => {
       this.setState({
-        event_time: new Date(res.time.begin_date + " " + res.time.begin_time).toString(), //+ res.time.end_date + res.time.end_time,
         event_name: res.name,
+        event_time: new Date(res.time.begin_date + " " + res.time.begin_time).toString(),
+        event_begin_time: res.time.begin_time,
+        event_end_time: res.time.end_time,
+        event_begin_date: res.time.begin_date,
+        event_end_date: res.time.end_date,
         event_location: res.place,
         event_location_detail: res.address,
         event_info: res.description,
-        event_img: res.dataURI
+        event_img: res.dataURI,
+        event_type: res.type,
+        event_organizer: res.organizer,
+        event_contact: res.contact
       })
     })
+  }
+
+  onSearch = (text) => {
+    if (text) {
+      this.props.history.push('/search/' +  encodeURIComponent(text))
+    }
   }
 
   componentDidMount() {
@@ -49,7 +69,7 @@ export default class Event extends Component {
   render() {
     return (
       <div className="event">
-        <NavBar />
+        <NavBar handleSubmit={this.onSearch.bind(this)}/>
         <div className="event-ctn">
           <img src={this.state.event_img} className="event-title-img" alt="" />
           <div className="row">
@@ -74,19 +94,20 @@ export default class Event extends Component {
             <div className="col-lg-4 col-md-6">
               <Button color="yellow" className="event-join-btn"
                 onClick={() => this.props.history.push("/registerform/" + this.state.event_id)}>
-                Tham gia ngay</Button>
-                <FacebookShareButton
-                  url={window.location.href}
-                  quote={"Easy Event - " + this.state.event_name}>
-                  <Button outline color="info" className="event-share-btn">Chia sẻ</Button>
-                </FacebookShareButton>
+                Tham gia ngay
+              </Button>
+              <FacebookShareButton
+                url={window.location.href}
+                quote={"Easy Event - " + this.state.event_name}>
+                <Button color="primary" className="event-share-btn">Chia sẻ</Button>
+              </FacebookShareButton>
             </div>
 
           </div>
 
           <div className="row event-body">
             <div className="col-md-8">
-              <Card className="event-info-card">
+              <Card className="event-main-card">
                 <CardBody>
                   <CardTitle>Giới thiệu</CardTitle>
                   <hr />
@@ -101,10 +122,24 @@ export default class Event extends Component {
               </Card>
             </div>
             <div className="col-md-4">  
-              <Card>
+              <Card className="event-info-card">
                 <CardBody>
                   <CardTitle>Thông tin</CardTitle>
-                  <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                  <hr />
+                  <CardText>
+                    <strong>Thể loại:</strong> {this.state.event_type} <br/>
+                    <strong>Địa điểm:</strong> {this.state.event_location} <br/>
+                    <strong>Địa chỉ:</strong> {this.state.event_location_detail} <br/>
+                    <strong>Bắt đầu:</strong> {this.state.event_begin_date + ' ' + this.state.event_begin_time} <br/>
+                    <strong>Kết thúc:</strong> {this.state.event_end_date + ' ' + this.state.event_end_time} <br/>
+                    <strong>Nhà tổ chức:</strong> {this.state.event_organizer} <br/>
+                  </CardText>
+                  <hr />
+                  <CardText>
+                    <strong>Liên hệ</strong> <br/>
+                    Email: {this.state.event_contact.email} <br/>
+                    Phone: {this.state.event_contact.phone} <br/>
+                  </CardText>
                 </CardBody>
               </Card>
             </div>

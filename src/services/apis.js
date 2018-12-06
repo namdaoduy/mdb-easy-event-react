@@ -7,6 +7,20 @@ class _API {
     return result;
   }
 
+  async postEventSearch(text) {
+    const res = await fetch(Server + "/event/search", {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        key_word: text
+      })
+    });
+    const result = await res.json();
+    return result;
+  }
+
   async postEvent(event_id) {
 
     const res = await fetch(Server + "/event", {
