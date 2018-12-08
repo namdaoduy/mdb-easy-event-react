@@ -46,6 +46,22 @@ class _API {
     const result = await res.json();
     return result;
   }
+
+  async postVerifyEmail(hashed, guest_email, event_id) {
+    const res = await fetch(Server + "/verify", {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        hashed: hashed,
+        guest_email: guest_email,
+        event_id: event_id
+      })
+    });
+    const result = await res.json();
+    return result;
+  }
 }
 
 const API = new _API();
