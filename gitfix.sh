@@ -2,7 +2,7 @@
 
 git filter-branch --env-filter '
 
-OLD_EMAIL=""
+OLD_EMAIL="gotit@Gotits-MacBook-Pro.local"
 CORRECT_NAME="namdaoduy"
 CORRECT_EMAIL="lenkc98@gmail.com"
 
