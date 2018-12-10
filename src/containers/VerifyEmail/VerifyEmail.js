@@ -51,7 +51,7 @@ export default class VerifyEmail extends Component {
     return(
       <div style={styles.container}>
         <img src={require('./../../assets/images/logo.png')} alt=""
-          style={this.state.verified == 1 ? styles.image : styles.unverified}/>
+          style={this.state.verified === 1 ? styles.image : styles.unverified}/>
         {this.renderInner()}
       </div>
     )

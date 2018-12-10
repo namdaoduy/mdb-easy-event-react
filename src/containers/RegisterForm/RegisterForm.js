@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./registerform.css"
-import { Card, CardBody, CardText, CardTitle, Button, Input} from 'mdbreact'
+import { Card, CardBody, CardText, CardTitle, Button } from 'mdbreact'
 import { Footer } from './../../components/Footer'
 import { FormComponent } from './FormComponent'
 import { Form } from 'informed';

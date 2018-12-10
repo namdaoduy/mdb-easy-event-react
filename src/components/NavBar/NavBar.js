@@ -66,7 +66,7 @@ export default class Home extends Component {
               />
             </NavItem>
             <NavItem>
-              <NavLink to="#">Đăng nhập</NavLink>
+              <NavLink to="/login">Đăng nhập</NavLink>
             </NavItem>
           </NavbarNav>
         </Collapse>

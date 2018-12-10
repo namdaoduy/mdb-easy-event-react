@@ -62,6 +62,21 @@ class _API {
     const result = await res.json();
     return result;
   }
+
+  async postLogin(username, password) {
+    const res = await fetch(Server + "/user/login", {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        username: username,
+        password: password
+      })
+    });
+    const result = await res.json();
+    return result;
+  }
 }
 
 const API = new _API();

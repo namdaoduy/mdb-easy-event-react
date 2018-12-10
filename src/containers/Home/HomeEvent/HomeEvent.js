@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Link } from 'react-router-dom'
-import { Server } from './../../../configs/server'
 import "./homeEvent.css"
 
 // eslint-disable-next-line no-extend-native

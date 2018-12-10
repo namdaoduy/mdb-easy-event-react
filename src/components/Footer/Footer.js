@@ -8,7 +8,7 @@ export default class Footer extends Component {
       <div className="footer">
         <div className="row footer-row-1">
           <div className="col-md-3">
-            <img className="footer-logo" src={require('./../../assets/images/logo.png')}></img>
+            <img className="footer-logo" src={require('./../../assets/images/logo.png')} alt=""></img>
           </div>
           <div className="col-md-3">
             <h5>Easy Event</h5>
@@ -27,14 +27,14 @@ export default class Footer extends Component {
           </div>
           <div className="col-md-3">
             <h5>Follow us</h5>
-            <a href="#"><Fa icon="facebook"/></a>
-            <a href="#"><Fa icon="linkedin"/></a>
-            <a href="#"><Fa icon="github"/></a>
+            <a href="/"><Fa icon="facebook"/></a>
+            <a href="/"><Fa icon="linkedin"/></a>
+            <a href="/"><Fa icon="github"/></a>
             <span>namdaoduy</span>
             <br />
-            <a href="#"><Fa icon="facebook"/></a>
-            <a href="#"><Fa icon="linkedin"/></a>
-            <a href="#"><Fa icon="github"/></a>
+            <a href="/"><Fa icon="facebook"/></a>
+            <a href="/"><Fa icon="linkedin"/></a>
+            <a href="/"><Fa icon="github"/></a>
             <span>SpQuyt</span>
           </div>
         </div>

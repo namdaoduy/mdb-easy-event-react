@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import "./home.css"
-import { Fa } from 'mdbreact'
 import { HomeEvent } from './HomeEvent'
 import { NavBar } from './../../components/NavBar'
 import { Footer } from './../../components/Footer'

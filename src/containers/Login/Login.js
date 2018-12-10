@@ -1,29 +1,72 @@
 import React, { Component } from "react"
 import { Form, Text } from 'informed'
-import { Card, CardBody, CardText, CardTitle, Button, Input} from 'mdbreact'
+import { Card, CardTitle, Button, CardText } from 'mdbreact'
 import './login.css'
+import API from './../../services/apis'
 
 export default class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      disabled: false,
+      error: ""
+    }
+  }
+  
+  validateRequired = (value) => {
+    return (!value) ? 'This field is required' : null;
+  }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    console.log('hi')
+  onSubmit = (values) => {
+    this.setState({
+      disabled: true,
+      error: ""
+    })
+    API.postLogin(values.username, values.password)
+    .then(res => {
+      this.setState({disabled: false})
+      if (res.success) {
+        this.props.history.push('/admin')
+      }
+      else {
+        this.setState({error: res.error})
+      }
+    })
   }
 
   render() {
     return(
       <div className="login-container">
         <div className="login-img">
-          <img src={require('./../../assets/images/logo.png')} />
+          <img src={require('./../../assets/images/logo.png')} alt=""/>
         </div>
-        <form className="login-form" id="login" onSubmit={this.onSubmit}>
+        <Form className="login-form" id="login" 
+          onSubmit={this.onSubmit}>
+        {({ formState }) => (
           <Card className="login-card">
             <CardTitle className="login-title">Đăng nhập</CardTitle>
-            <Input type="text" field="username" placeHolder="Username"/>
-            <Input type="password" name="password" placeHolder="Password"/>
-            <Button type="submit" size="sm" color="yellow" className="login-submit">Đăng nhập</Button>
+            <Text type="text" 
+              field="username" 
+              placeholder=" Username" 
+              className={"login-form-input" + (formState.errors.username ? " error" : "")}
+              validate={this.validateRequired}/>
+            <Text type="password" 
+              field="password" 
+              placeholder=" Password" 
+              className={"login-form-input" + (formState.errors.password ? " error" : "")}
+              validate={this.validateRequired}/>
+            <h2 className="login-error">{this.state.error}</h2>
+            <Button 
+              type="submit" 
+              size="sm" color="yellow" 
+              className="login-submit"
+              disabled={this.state.disabled}>
+              {this.state.disabled ? "Please Wait ..." : "Đăng nhập"}
+            </Button>
+            <h3 className="login-h2">Chưa có tài khoản? <a>Đăng ký</a> tại đây</h3>
           </Card>
-        </form>
+        )}
+        </Form>
       </div>
     )
   }
