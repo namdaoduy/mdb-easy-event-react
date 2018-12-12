@@ -77,6 +77,23 @@ class _API {
     const result = await res.json();
     return result;
   }
+
+  async postSignup(username, password, name, email) {
+    const res = await fetch(Server + "/user/signup", {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({
+        username: username,
+        password: password,
+        name: name,
+        email: email
+      })
+    });
+    const result = await res.json();
+    return result;
+  }
 }
 
 const API = new _API();

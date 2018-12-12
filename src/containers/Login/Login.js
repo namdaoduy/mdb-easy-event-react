@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Form, Text } from 'informed'
-import { Card, CardTitle, Button, CardText } from 'mdbreact'
+import { Card, CardTitle, Button } from 'mdbreact'
 import './login.css'
 import API from './../../services/apis'
 
@@ -25,11 +25,12 @@ export default class Login extends Component {
     API.postLogin(values.username, values.password)
     .then(res => {
       this.setState({disabled: false})
-      if (res.success) {
-        this.props.history.push('/admin')
+      if (res.error) {
+        this.setState({error: JSON.stringify(res.error)})
       }
-      else {
-        this.setState({error: res.error})
+      else if (res.success) {
+        localStorage.setItem('easy_event_token', res.token);
+        this.props.history.push('/admin')
       }
     })
   }
@@ -63,7 +64,7 @@ export default class Login extends Component {
               disabled={this.state.disabled}>
               {this.state.disabled ? "Please Wait ..." : "Đăng nhập"}
             </Button>
-            <h3 className="login-h2">Chưa có tài khoản? <a>Đăng ký</a> tại đây</h3>
+            <h3 className="login-h2">Chưa có tài khoản? <a href="/signup">Đăng ký</a> tại đây</h3>
           </Card>
         )}
         </Form>
