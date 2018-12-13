@@ -1,11 +1,12 @@
 .signup-container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #ffbb33;
+  background-color: #2c3448;
 }
 
 .signup-img {
@@ -20,6 +21,7 @@
 .signup-container img {
   width: 300px;
   max-width: 60%;
+  margin-top: 20px;
 }
 
 .signup-form {
@@ -31,6 +33,7 @@
 
 .signup-card {
   padding: 20px;
+  margin: 20px 0;
 }
 
 .signup-form-input {
