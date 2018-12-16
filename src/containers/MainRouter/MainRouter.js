@@ -6,6 +6,7 @@ import { Signup } from "./../Signup"
 import { Event } from "./../Event"
 import { RegisterForm } from './../RegisterForm'
 import { VerifyEmail } from './../VerifyEmail'
+import { EventAdmin } from './../EventAdmin'
 
 export default class MainRouter extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class MainRouter extends Component {
           <Route exact path="/event/:event_id" component={Event}/>
           <Route exact path="/registerform/:event_id" component={RegisterForm}/>
           <Route exact path="/verify/:hashed/:guest_email/:event_id" component={VerifyEmail}/>
+          <Route exact path="/admin" component={EventAdmin}/>
         </div>
       </Router>
     )
