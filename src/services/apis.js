@@ -94,6 +94,19 @@ class _API {
     const result = await res.json();
     return result;
   }
+
+  async putEvent(event, token) {
+    const res = await fetch(Server + "/user/event", {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': token
+      },
+      method: "PUT",
+      body: JSON.stringify(event)
+    });
+    const result = await res.json();
+    return result;
+  }
 }
 
 const API = new _API();

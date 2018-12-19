@@ -51,7 +51,7 @@ export default class EventAdmin extends Component {
         </Navbar>
 
         <div className="admin-inner">
-          <AddEventForm />
+          <AddEventForm history={this.props.history}/>
         </div>
 
         <Footer />

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Form, Text, TextArea, Select, Option } from 'informed'
+import { Form, Text, TextArea, Select, Option, Scope } from 'informed'
 import { Card, CardTitle, Button, CardText } from 'mdbreact'
 import LocationPicker from 'react-location-picker';
 import API from './../../services/apis'
@@ -19,10 +19,7 @@ export default class AddEventForm extends Component {
       error: "",
       begin_date: new Date(),
       end_date: new Date(),
-      position: {
-         lat: 0,
-         lng: 0
-      }
+      dataURI: ""
     }
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
@@ -32,10 +29,35 @@ export default class AddEventForm extends Component {
   }
 
   onSubmit = (values) => {
+    values.dataURI = this.state.dataURI;
+    const token = "Bearer " + localStorage.getItem('easy_event_token');
+    API.putEvent(values, token)
+    .then((result) => {
+      if (result.success) {
+        alert("Thành công!");
+        this.props.history.push('/')
+      }
+      else {
+        alert("Failed")
+      }
+    })
   }
 
-  handleLocationChange ({ position, address }) {
+  handleLocationChange ({ position, address }, formApi) {
     this.setState({ position, address });
+    formApi.setValue('lat', position.lat)
+    formApi.setValue('lng', position.lng)
+  }
+
+  readFile = (file) => {
+    const FR = new FileReader();
+    FR.readAsDataURL(file)
+    FR.onload = () => {
+      this.setState({dataURI: FR.result})
+    }
+    FR.onerror = (error) => {
+      console.log('Error: ', error);
+    }
   }
 
   render() {
@@ -43,7 +65,7 @@ export default class AddEventForm extends Component {
       <div className="add-container">
         <Form className="add-form" id="add" 
           onSubmit={this.onSubmit}>
-        {({ formState }) => (
+        {({ formState, formApi }) => (
           <Card className="add-card">
             <h5>Tên sự kiện</h5>
             <Text type="text" 
@@ -75,20 +97,30 @@ export default class AddEventForm extends Component {
             <h5>Ngày bắt đầu</h5>
             <DatePicker
               selected={this.state.begin_date}
+              onChange={date => {
+                this.setState({begin_date: date})
+                const str = date.toISOString().slice(0,10);
+                let vals = Object.assign({}, formState.values)
+                if (!vals.time) vals.time = {};
+                vals.time.begin_date = str;
+                vals.time.begin_time = "12:00";
+                formApi.setValues(vals)
+              }}
             />
-            <Text type="text" 
-              field="begin_date"
-              style={{display: "none"}}
-              validate={this.validateRequired}/>
 
             <h5>Ngày kết thúc</h5>
             <DatePicker
               selected={this.state.end_date}
+              onChange={date => {
+                this.setState({end_date: date})
+                const str = date.toISOString().slice(0,10);
+                let vals = Object.assign({}, formState.values)
+                if (!vals.time) vals.time = {};
+                vals.time.end_date = str;
+                vals.time.end_time = "12:00";
+                formApi.setValues(vals)
+              }}
             />
-            <Text type="text" 
-              field="begin_date"
-              style={{display: "none"}}
-              validate={this.validateRequired}/>
 
             <h5>Địa điểm tổ chức</h5>
             <Text type="text" 
@@ -111,18 +143,43 @@ export default class AddEventForm extends Component {
               className={"add-form-input" + (formState.errors.name ? " error" : "")}
               validate={this.validateRequired}/>
 
-            <h1>{JSON.stringify(this.state.position)}</h1>
+            <h5>Địa điểm trên bản đồ</h5>
+            <p style={{color: 'gray'}}>* Gần {this.state.address}</p>
             <div>
               <LocationPicker
                 containerElement={ <div style={ {height: '100%'} } /> }
-                mapElement={ <div style={ {height: '400px'} } /> }
+                mapElement={ <div style={ {height: '500px'} } /> }
                 defaultPosition={defaultPosition}
-                onChange={this.handleLocationChange}
+                zoom={15}
+                radius={-1}
+                onChange={({position, address}) => {
+                  this.setState({address})
+                  let vals = Object.assign({}, formState.values)
+                  vals.cord = {lat: position.lat, lng: position.lng};
+                  formApi.setValues(vals)
+                }}
               />
             </div>
 
-
-
+            <Scope scope="contact">
+              <h5>Email</h5>
+              <Text type="text" 
+                field="email" 
+                placeholder=" VD: example@gmail.com" 
+                className={"add-form-input" + (formState.errors.name ? " error" : "")}
+                validate={this.validateRequired}/>
+              <h5>Số điện thoại</h5>
+              <Text type="text" 
+                field="phone" 
+                placeholder=" VD: 0123456789" 
+                className={"add-form-input" + (formState.errors.name ? " error" : "")}
+                validate={this.validateRequired}/>
+            </Scope>
+            
+            <h5>Chọn ảnh cho sự kiện</h5>
+            <input type="file" onChange={e => {
+              this.readFile(e.target.files[0])
+            }}/>
 
             <h2 className="add-error">{this.state.error}</h2>
             <Button 
@@ -132,7 +189,7 @@ export default class AddEventForm extends Component {
               disabled={this.state.disabled}>
               {this.state.disabled ? "Please Wait ..." : "Tạo sự kiện"}
             </Button>
-            <code>{JSON.stringify(formState)}</code>
+            {/* <code>{JSON.stringify(formState)}</code> */}
           </Card>
         )}
         </Form>
