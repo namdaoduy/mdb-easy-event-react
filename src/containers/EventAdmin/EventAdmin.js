@@ -4,6 +4,7 @@ import {
   Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink
 } from 'mdbreact'
 import AddEventForm from './AddEventForm'
+import { Footer } from './../../components/Footer'
 
 export default class EventAdmin extends Component {
   constructor(props) {
@@ -52,6 +53,8 @@ export default class EventAdmin extends Component {
         <div className="admin-inner">
           <AddEventForm />
         </div>
+
+        <Footer />
       </div>
     )
   }
